@@ -9,22 +9,9 @@ global $wpsc_query, $wpdb;
 
     <?php include( 'assets/includes/if-display-categories.php' ); ?>
 
-
-
-
 	<?php if(wpsc_display_products()): ?>
-		<?php if(wpsc_is_in_category()) : ?>
-			<div class='wpsc_category_details'>
-				<?php if(get_option('show_category_thumbnails') && wpsc_category_image()) : ?>
-					<img src='<?php echo wpsc_category_image(); ?>' alt='<?php echo wpsc_category_name(); ?>' title='<?php echo wpsc_category_name(); ?>' />
-				<?php endif; ?>
 
-				<?php if(get_option('wpsc_category_description') &&  wpsc_category_description()) : ?>
-					<?php echo wpsc_category_description(); ?>
-				<?php endif; ?>
-			</div>
-		<?php endif; ?>
-
+        <?php include( 'assets/includes/if-is-in-category.php' ); ?>
 
 		<!-- Start Pagination -->
 		<?php if ( ( get_option( 'use_pagination' ) == 1 && ( get_option( 'wpsc_page_number_position' ) == 1 || get_option( 'wpsc_page_number_position' ) == 3 ) ) ) : ?>
