@@ -145,24 +145,9 @@
 					<input type="hidden" value="<?php echo wpsc_the_product_id(); ?>" name="product_id"/>
 
 					<!-- END OF QUANTITY OPTION -->
-					<?php if((get_option('hide_addtocart_button') == 0) &&  (get_option('addtocart_or_buynow') !='1')) : ?>
-						<?php if(wpsc_product_has_stock()) : ?>
-							<div class='wpsc_buy_button_container'>
-									<?php if(wpsc_product_external_link(wpsc_the_product_id()) != '') : ?>
-									<?php 	$action =  wpsc_product_external_link(wpsc_the_product_id()); ?>
-									<input class="wpsc_buy_button" type='button' value='<?php echo __('Buy Now', 'wpsc'); ?>' onclick='gotoexternallink("<?php echo $action; ?>")'>
-									<?php else: ?>
-								<input type="submit" value="<?php echo __('Add To Cart', 'wpsc'); ?>" name="Buy" class="wpsc_buy_button" id="product_<?php echo wpsc_the_product_id(); ?>_submit_button"/>
-									<?php endif; ?>
-								<div class='wpsc_loading_animation'>
-									<img title="Loading" alt="Loading" src="<?php echo WPSC_URL; ?>/images/indicator.gif" class="loadingimage"/>
-									<?php echo __('Updating cart...', 'wpsc'); ?>
-								</div>
-							</div>
-						<?php else : ?>
-							<p class='soldout'><?php echo __('This product has sold out.', 'wpsc'); ?></p>
-						<?php endif ; ?>
-					<?php endif ; ?>
+
+                    <?php include( 'assets/includes/buy-button.php' ); ?>
+
 				</form>
 
 				<?php if((get_option('hide_addtocart_button') == 0) && (get_option('addtocart_or_buynow')=='1')) : ?>
@@ -174,7 +159,7 @@
 					if(function_exists('gold_shpcrt_display_gallery')) :
 						echo gold_shpcrt_display_gallery(wpsc_the_product_id(), true);
 					endif;
-					?>
+				?>
 			</div>
 	</div>
 </div>
