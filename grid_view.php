@@ -38,8 +38,6 @@ $image_height = get_option('product_image_height');
 		</div>
 	<?php endif; ?>
 
-
-
 	<div class="product_grid_display">
 		<?php while (wpsc_have_products()) :  wpsc_the_product(); ?>
 			<div class="product_grid_item product_view_<?php echo wpsc_the_product_id(); ?>">
@@ -57,7 +55,6 @@ $image_height = get_option('product_image_height');
 						</a>
 					</div>
 				<?php endif; ?>
-
 
 				<?php if(get_option('show_images_only') != 1): ?>
 					<div class="grid_product_info">
@@ -79,21 +76,9 @@ $image_height = get_option('product_image_height');
 
 
 							<?php if(get_option('display_variations') == 1) : ?>
-								<?php /** the variation group HTML and loop */ ?>
-								<div class="wpsc_variation_forms">
-									<?php while (wpsc_have_variation_groups()) : wpsc_the_variation_group(); ?>
-										<p>
-											<label for="<?php echo wpsc_vargrp_form_id(); ?>"><?php echo wpsc_the_vargrp_name(); ?>:</label>
-											<?php /** the variation HTML and loop */?>
-											<select class='wpsc_select_variation' name="variation[<?php echo wpsc_vargrp_id(); ?>]" id="<?php echo wpsc_vargrp_form_id(); ?>">
-											<?php while (wpsc_have_variations()) : wpsc_the_variation(); ?>
-												<option value="<?php echo wpsc_the_variation_id(); ?>" <?php echo wpsc_the_variation_out_of_stock(); ?> ><?php echo wpsc_the_variation_name(); ?></option>
-											<?php endwhile; ?>
-											</select>
-										</p>
-									<?php endwhile; ?>
-								</div>
-								<?php /** the variation group HTML and loop ends here */?>
+
+                                <?php include( 'assets/includes/variation-group.php' ); ?>
+
 							<?php endif; ?>
 
 							<?php if((get_option('display_addtocart') == 1) && (get_option('addtocart_or_buynow') !='1')) :?>
