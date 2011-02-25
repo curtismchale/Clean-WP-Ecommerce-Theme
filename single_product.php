@@ -96,7 +96,7 @@ $image_height = get_option('single_view_image_height');
 						</div>
 					<?php endif; ?>
 
-                    <?php include( 'assets/includes/variation-loop.php' ); ?>
+                    <?php include( 'assets/includes/variation-group.php' ); ?>
 
 					<!-- THIS IS THE QUANTITY OPTION MUST BE ENABLED FROM ADMIN SETTINGS -->
 					<?php if(wpsc_has_multi_adding()): ?>
